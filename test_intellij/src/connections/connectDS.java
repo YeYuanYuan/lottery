@@ -29,7 +29,7 @@ import java.sql.*;
 import javax.xml.transform.Result;
 
 import com.microsoft.sqlserver.jdbc.*;
-
+@Deprecated
 public class connectDS {
 
 	public static void main(String[] args) {
