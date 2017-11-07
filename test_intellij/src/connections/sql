@@ -1,0 +1,39 @@
+
+SELECT * FROM sysdatabases 查询所有数据库
+
+SELECT * FROM sys.tables 查询数据库所有列表
+
+ALTER TABLE account
+    add account_name VARCHAR(10) NOT NULL 新添字段
+
+
+exec sp_rename 'account' , 'tb_account' 修改表名
+
+Select name from syscolumns where ID=OBJECT_ID('collection') 查询列表所有字段
+
+Select name from syscolumns where ID=OBJECT_ID('account')
+
+Select name from syscolumns where ID=OBJECT_ID('tb_account')
+
+
+外键约束查询
+select
+  oSub.name  AS  [子表名称],
+  fk.name AS  [外键名称],
+  SubCol.name AS [子表列名],
+  oMain.name  AS  [主表名称],
+  MainCol.name AS [主表列名]
+from
+  sys.foreign_keys fk
+    JOIN sys.all_objects oSub
+        ON (fk.parent_object_id = oSub.object_id)
+    JOIN sys.all_objects oMain
+        ON (fk.referenced_object_id = oMain.object_id)
+    JOIN sys.foreign_key_columns fkCols
+        ON (fk.object_id = fkCols.constraint_object_id)
+    JOIN sys.columns SubCol
+        ON (oSub.object_id = SubCol.object_id
+            AND fkCols.parent_column_id = SubCol.column_id)
+    JOIN sys.columns MainCol
+        ON (oMain.object_id = MainCol.object_id
+            AND fkCols.referenced_column_id = MainCol.column_id)
