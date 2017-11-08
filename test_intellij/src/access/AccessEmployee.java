@@ -3,7 +3,6 @@ package access;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import commander.ConnextSql;
-import connections.Config;
 import entity.bean.ConnectBean;
 
 import java.sql.Connection;
@@ -16,9 +15,17 @@ public class AccessEmployee implements ConnextSql {
     private ConnectBean connectBean;
     private Statement[] statements = new Statement[10];
 
+    public Connection execute(){
+        return execute(null);
+    }
+
     @Override
     public Connection execute(ConnectBean connectBean) {
-        this.connectBean = connectBean;
+        if(connectBean == null){
+            connectBean = ConnectBean.createDefualtBean();
+        }else {
+            this.connectBean = connectBean;
+        }
         SQLServerDataSource ds = new SQLServerDataSource();
         ds.setServerName(connectBean.getLocal());
         ds.setUser(connectBean.getUser());

@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="commons-dbutils-1.7-javadoc">
+    <CLASSES>
+      <root url="jar://F:/new_download/commons-dbutils-1.7-bin/commons-dbutils-1.7/commons-dbutils-1.7.jar!/" />
+      <root url="file://$PROJECT_DIR$/.." />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://F:/new_download/commons-dbutils-1.7-bin/commons-dbutils-1.7/commons-dbutils-1.7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://F:/new_download/commons-dbutils-1.7-bin/commons-dbutils-1.7/commons-dbutils-1.7-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/../jartest/src" />
+      <root url="file://$PROJECT_DIR$/test_intellij/src" />
+      <root url="file://$PROJECT_DIR$/../q/src" />
+      <root url="file://$PROJECT_DIR$/../sqlserver_text/src" />
+      <root url="file://$PROJECT_DIR$/../video/src" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,6 +1,7 @@
 package entity.bean;
 
 import commander.IBean;
+import connections.Config;
 
 public class ConnectBean implements IBean{
 
@@ -58,4 +59,10 @@ public class ConnectBean implements IBean{
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
+
+
+    public static final ConnectBean createDefualtBean(){
+        return new ConnectBean(Config.LOCAL,Config.DB_NAME,Config.USER,Config.PWD);
+    }
+
 }
