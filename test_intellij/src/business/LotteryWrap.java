@@ -9,7 +9,7 @@ final class LotteryWrap implements Robot {
     private static Robot robot;
 
     static {
-        robot = new LotteryWrap(RobotImp.getInstance());
+        robot = new LotteryWrap(RobotBusiness.getInstance());
     }
 
     private Robot base;
@@ -120,5 +120,21 @@ final class LotteryWrap implements Robot {
     @Override
     public boolean order(IBuyGroupEntity iBuyGroup) {
         return base.order(iBuyGroup);
+    }
+
+
+    @Override
+    public void createPerson(IPersonEntity iPersonEntity) {
+        base.createPerson(iPersonEntity);
+    }
+
+    @Override
+    public void deletePerson(long id) {
+        base.deletePerson(id);
+    }
+
+    @Override
+    public void modiPerson(IPersonEntity iPersonEntity) {
+        base.modiPerson(iPersonEntity);
     }
 }

@@ -42,7 +42,7 @@ public class connectURL {
         		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             		con = DriverManager.getConnection(connectionUrl);
             
-            		// Create and execute an SQL statement that returns some data.
+            		// Create and assembly an SQL statement that returns some data.
             		String SQL = "SELECT TOP 10 * FROM Person.Contact";
             		stmt = con.createStatement();
             		rs = stmt.executeQuery(SQL);

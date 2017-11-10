@@ -1,13 +1,17 @@
 package business;
 
+import com.microsoft.sqlserver.jdbc.StringUtils;
 import lottery.*;
 
 import java.util.List;
 
-final class RobotImp implements Robot {
+final class RobotBusiness implements Robot {
+
+    private RobotBusiness() {
+    }
 
     public static Robot getInstance() {
-        return null;
+        return new RobotBusiness();
     }
 
     @Override
@@ -27,6 +31,18 @@ final class RobotImp implements Robot {
 
     @Override
     public boolean createElement(IElementEntity element) {
+        boolean nullFlag = StringUtils.isEmpty(element.getName()) || element.getOperator() < 0;
+        if (nullFlag) {
+            return false;
+        } else {
+
+//            A
+
+
+
+        }
+
+
         return false;
     }
 
@@ -108,5 +124,21 @@ final class RobotImp implements Robot {
     @Override
     public boolean order(IBuyGroupEntity iBuyGroup) {
         return false;
+    }
+
+
+    @Override
+    public void createPerson(IPersonEntity iPersonEntity) {
+
+    }
+
+    @Override
+    public void deletePerson(long id) {
+
+    }
+
+    @Override
+    public void modiPerson(IPersonEntity iPersonEntity) {
+
     }
 }
