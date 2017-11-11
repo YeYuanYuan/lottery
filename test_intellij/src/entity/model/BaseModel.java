@@ -33,4 +33,8 @@ public class BaseModel implements Identity, ICreateTime {
     public long getCreateTime() {
         return createTime.getTime();
     }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

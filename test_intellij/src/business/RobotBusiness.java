@@ -1,8 +1,11 @@
 package business;
 
+import access.AccessElement;
 import com.microsoft.sqlserver.jdbc.StringUtils;
+import entity.model.ElementModel;
 import lottery.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 final class RobotBusiness implements Robot {
@@ -33,27 +36,32 @@ final class RobotBusiness implements Robot {
     public boolean createElement(IElementEntity element) {
         boolean nullFlag = StringUtils.isEmpty(element.getName()) || element.getOperator() < 0;
         if (nullFlag) {
+            System.out.println("名字或操作人不能为空");
             return false;
         } else {
-
-//            A
-
-
-
+            return AccessElement.insertSql((ElementModel) element) > 0;
         }
-
-
-        return false;
     }
 
     @Override
     public boolean deleteElement(long elementId) {
-        return false;
+        if (elementId < 0) {
+            System.out.println("id 不能为空");
+            return false;
+        } else {
+            return AccessElement.deleteSql(elementId) > 0;
+        }
     }
 
     @Override
     public boolean modiElement(IElementEntity element) {
-        return false;
+        boolean nullFlag = StringUtils.isEmpty(element.getName()) || element.getOperator() < 0;
+        if (nullFlag) {
+            System.out.println("名字或操作人不能为空");
+            return false;
+        } else {
+            return AccessElement.upDateSql((ElementModel) element) > 0;
+        }
     }
 
     @Override
@@ -73,7 +81,7 @@ final class RobotBusiness implements Robot {
 
     @Override
     public List<IElementEntity> getAllElements() {
-        return null;
+        return new ArrayList<>(AccessElement.query(null,null,false,null,-1));
     }
 
     @Override

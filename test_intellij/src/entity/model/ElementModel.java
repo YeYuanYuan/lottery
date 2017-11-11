@@ -26,4 +26,15 @@ public class ElementModel extends BaseModel implements IElementEntity {
     public void setRemark(String remark) {
         this.remark = remark;
     }
+
+    @Override
+    public String toString() {
+        return "ElementModel{" +
+                "element_name='" + element_name + '\'' +
+                ", remark='" + remark + '\'' +
+                ", id=" + id +
+                ", operatorId=" + operatorId +
+                ", createTime=" + createTime +
+                '}';
+    }
 }

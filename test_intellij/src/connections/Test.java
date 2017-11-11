@@ -1,31 +1,54 @@
 package connections;
 
-import access.AccessEmployee;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.MapHandler;
 
-import java.sql.Connection;
+import business.Proxy;
+import entity.model.ElementModel;
+import lottery.FactoryLottery;
+import lottery.IElementEntity;
+
 import java.sql.Date;
-import java.sql.SQLException;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Test {
     public static void main(String[] args) {
-        QueryRunner queryRunner = new QueryRunner(new AccessEmployee().execute());
 
-        try {
+        FactoryLottery factoryLottery = Proxy.getFactoryLottery();
 
-            MapHandler mapHandler = new MapHandler();
+//        for(int i = 1;i <= 10 ; i++) {
+//            ElementModel elementModel = new ElementModel();
+//            elementModel.setName(String.valueOf(i));
+//            elementModel.setOperator(4);
+//            elementModel.setCreateTime(new Date(System.currentTimeMillis()));
+//            if (factoryLottery.createElement(elementModel)) {
+//                System.out.println("创建成功  " + elementModel);
+//            } else {
+//                System.out.println("创建失败  " + elementModel);
+//            }
+//        }
 
-            Map o = queryRunner.insert("insert into " +
-                    "tb_account(account,phone,create_time,account_name)" +
-                    " values(?,?,?,?)",mapHandler,"linhui2"
-            ,"13727710862",new Date(System.currentTimeMillis()),"林辉");
-            System.out.print(o.toString());
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        if (factoryLottery.deleteElement(1)) {
+//            System.out.println("删除成功  ");
+//        } else {
+//            System.out.println("删除失败  ");
+//        }
+
+//        ElementModel elementModel = new ElementModel();
+//        elementModel.setName("猪");
+//        elementModel.setOperator(4);
+//        elementModel.setId(4);
+//
+//        if (factoryLottery.modiElement(elementModel)) {
+//            System.out.println("修改成功  ");
+//        } else {
+//            System.out.println("修改失败  ");
+//        }
+
+        Set<IElementEntity> allElements = new HashSet<>(factoryLottery.getAllElements());
+
+        System.out.println(allElements);
 
     }
 

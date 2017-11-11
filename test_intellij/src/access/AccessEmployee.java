@@ -31,7 +31,6 @@ class AccessEmployee implements ConnextSql {
         return ds;
     }
 
-
     @Override
     public boolean isVisible() {
         return false;
