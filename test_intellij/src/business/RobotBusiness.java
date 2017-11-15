@@ -31,7 +31,7 @@ final class RobotBusiness implements Robot {
     public boolean deleteGroup(long groupId) {
         return false;
     }
-
+    //实现
     @Override
     public boolean createElement(IElementEntity element) {
         boolean nullFlag = StringUtils.isEmpty(element.getName()) || element.getOperator() < 0;
@@ -42,7 +42,7 @@ final class RobotBusiness implements Robot {
             return AccessElement.insertSql((ElementModel) element) > 0;
         }
     }
-
+    //实现
     @Override
     public boolean deleteElement(long elementId) {
         if (elementId < 0) {
@@ -52,7 +52,7 @@ final class RobotBusiness implements Robot {
             return AccessElement.deleteSql(elementId) > 0;
         }
     }
-
+    //实现
     @Override
     public boolean modiElement(IElementEntity element) {
         boolean nullFlag = StringUtils.isEmpty(element.getName()) || element.getOperator() < 0;
@@ -78,7 +78,7 @@ final class RobotBusiness implements Robot {
     public List<IGroupEntity> getAllGroups() {
         return null;
     }
-
+    //实现
     @Override
     public List<IElementEntity> getAllElements() {
         return new ArrayList<>(AccessElement.query(null,null,false,null,-1));

@@ -2,7 +2,6 @@ package access;
 
 import com.microsoft.sqlserver.jdbc.StringUtils;
 import entity.model.ElementModel;
-import lottery.IElementEntity;
 
 import java.sql.Date;
 import java.util.List;
@@ -14,7 +13,7 @@ public final class AccessElement {
 
     public static int insertSql(ElementModel iElementEntity) {
         return AccessWrap.accessWrap.insert("insert into tb_element(element_name,create_time,remark," +
-                        "operator_id) values(?,?,?,?)", iElementEntity.getName(), new Date(iElementEntity.getCreateTime()),
+                        "operator_id) values(?,?,?,?)", iElementEntity.getName(), new Date(iElementEntity.getCreate_time()),
                 iElementEntity.getRemark(), iElementEntity.getOperator()
         );
     }

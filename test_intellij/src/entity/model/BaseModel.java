@@ -8,8 +8,8 @@ import java.sql.Date;
 public class BaseModel implements Identity, ICreateTime {
 
     protected long id;
-    protected long operatorId;
-    protected Date createTime;
+    protected long operator_id;
+    protected Date create_time;
 
     @Override
     public long getId() {
@@ -18,7 +18,7 @@ public class BaseModel implements Identity, ICreateTime {
 
     @Override
     public long getOperator() {
-        return operatorId;
+        return operator_id;
     }
 
     public void setId(long id) {
@@ -26,15 +26,15 @@ public class BaseModel implements Identity, ICreateTime {
     }
 
     public void setOperator(long operatorId) {
-        this.operatorId = operatorId;
+        this.operator_id = operatorId;
     }
 
     @Override
-    public long getCreateTime() {
-        return createTime.getTime();
+    public long getCreate_time() {
+        return create_time.getTime();
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
     }
 }
