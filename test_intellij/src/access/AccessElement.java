@@ -13,7 +13,7 @@ public final class AccessElement {
 
     public static int insertSql(ElementModel iElementEntity) {
         return AccessWrap.accessWrap.insert("insert into tb_element(element_name,create_time,remark," +
-                        "operator_id) values(?,?,?,?)", iElementEntity.getName(), new Date(iElementEntity.getCreate_time()),
+                        "operator_id) values(?,?,?,?)", iElementEntity.getName(), new Date(iElementEntity.getCreateTime()),
                 iElementEntity.getRemark(), iElementEntity.getOperator()
         );
     }

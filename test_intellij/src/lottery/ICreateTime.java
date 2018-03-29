@@ -5,6 +5,6 @@ package lottery;
  */
 public interface ICreateTime {
 
-    long getCreate_time();
+    long getCreateTime();
 
 }

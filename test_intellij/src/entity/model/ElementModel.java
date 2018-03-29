@@ -33,8 +33,8 @@ public class ElementModel extends BaseModel implements IElementEntity {
                 "element_name='" + element_name + '\'' +
                 ", remark='" + remark + '\'' +
                 ", id=" + id +
-                ", operator_id=" + operator_id +
-                ", create_time=" + create_time +
+                ", operatorId=" + operatorId +
+                ", createTime=" + createTime +
                 '}';
     }
 }

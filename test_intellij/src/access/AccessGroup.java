@@ -11,7 +11,7 @@ public class AccessGroup {
 
     public static int insertSql(GroupModel groupModel) {
         return AccessWrap.accessWrap.insert("insert into tb_group values(?,?,?)"
-                , groupModel.getName(), new Date(groupModel.getCreate_time()), groupModel);
+                , groupModel.getName(), new Date(groupModel.getCreateTime()), groupModel);
     }
 
 
